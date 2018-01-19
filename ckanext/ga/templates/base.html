@@ -1,0 +1,16 @@
+{% ckan_extends %}
+
+
+{% block scripts %}
+  {{ super() }}
+  {{ c.ckan.ga_id }}
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ h.get_ga_id() }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '{{ h.get_ga_id() }}');
+  </script>
+{% endblock %}
