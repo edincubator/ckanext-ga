@@ -1,18 +1,11 @@
-import ConfigParser
 import os
 
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 
-config = ConfigParser.ConfigParser()
-config.read(os.environ['CKAN_CONFIG'])
-PLUGIN_SECTION = 'plugin:ga'
-
-GA_ID = config.get(PLUGIN_SECTION, 'ga_id')
-
 
 def get_ga_id():
-    return GA_ID
+    return os.environ['GA_ID']
 
 
 class GaPlugin(plugins.SingletonPlugin):
